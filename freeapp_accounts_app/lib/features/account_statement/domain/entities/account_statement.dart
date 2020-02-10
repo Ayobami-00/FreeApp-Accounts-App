@@ -6,7 +6,7 @@ class AccountStatement extends Equatable {
   final double amount;
   final String description;
   final String timestamp;
-  final List<String> teamMemebersInvolved;
+  final List<String> teamMembersInvolved;
   final String statementType;
 
   AccountStatement({
@@ -14,9 +14,9 @@ class AccountStatement extends Equatable {
   @required this.amount, 
   @required this.description,
   @required this.timestamp, 
-  @required this.teamMemebersInvolved,
+  @required this.teamMembersInvolved,
   @required this.statementType});
 
   @override
-  List<Object> get props => [nameOfEntry,amount,description,timestamp,teamMemebersInvolved,statementType];
+  List<Object> get props => [nameOfEntry,amount,description,timestamp,teamMembersInvolved,statementType];
 }

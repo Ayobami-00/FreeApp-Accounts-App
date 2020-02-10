@@ -22,7 +22,7 @@ void main() {
                                               amount: 10000.0, 
                                               description: "Web Hosting for FreeApp Web", 
                                               timestamp: "152345677",
-                                              teamMemebersInvolved: ["Tunde Adewole","Philip Nnamdi"] ,
+                                              teamMembersInvolved: ["Tunde Adewole","Philip Nnamdi"] ,
                                               statementType: "Debit");
 
   test(

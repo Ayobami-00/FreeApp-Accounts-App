@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:freeapp_accounts_app/features/account_statement/domain/entities/account_statement.dart';
 import 'package:freeapp_accounts_app/features/account_statement/domain/repositories/account_statement_repository.dart';
-import 'package:freeapp_accounts_app/features/account_statement/domain/usecases/get_verifiable_account_statement.dart';
+import 'package:freeapp_accounts_app/features/account_statement/domain/usecases/get_monthly_account_statement.dart';
 import 'package:mockito/mockito.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -9,15 +9,15 @@ class MockAccountStatementRepository extends Mock
     implements AccountStatementRepository {}
 
 void main() {
-  GetVerifiableAccountStatment usecase;
+  GetMonthlyAccountStatment usecase;
   MockAccountStatementRepository mockAccountStatementRepository;
 
   setUp(() {
     mockAccountStatementRepository = MockAccountStatementRepository();
-    usecase = GetVerifiableAccountStatment(mockAccountStatementRepository);
+    usecase = GetMonthlyAccountStatment(mockAccountStatementRepository);
   });
 
-  final tteamMmberUserId = 'sjhhwu38389309309337ccn';
+  final tMonthNumber = '1';
   final tAccountStatement = AccountStatement(nameOfEntry: "Web Hosting", 
                                               amount: 10000.0, 
                                               description: "Web Hosting for FreeApp Web", 
@@ -31,13 +31,13 @@ void main() {
     'should get account statement for the statement type from the repository',
     () async {
       // arrange
-      when(mockAccountStatementRepository.getVerifiableAccountStatement(any))
+      when(mockAccountStatementRepository.getMonthlyAccountStatement(any))
           .thenAnswer((_) async => Right(tAccountStatement));
       // act
-      final result = await usecase(Params(teamMemberUserId: tteamMmberUserId));
+      final result = await usecase(Params(monthNumber: tMonthNumber));
       // assert
       expect(result, Right(tAccountStatement));
-      verify(mockAccountStatementRepository.getVerifiableAccountStatement(tteamMmberUserId));
+      verify(mockAccountStatementRepository.getMonthlyAccountStatement(tMonthNumber));
       verifyNoMoreInteractions(mockAccountStatementRepository);
     },
   );

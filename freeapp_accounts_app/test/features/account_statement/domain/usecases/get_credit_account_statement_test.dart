@@ -23,7 +23,9 @@ void main() {
                                               description: "Web Hosting for FreeApp Web", 
                                               timestamp: "152345677",
                                               teamMembersInvolved: ["Tunde Adewole","Philip Nnamdi"] ,
-                                              statementType: "Credit");
+                                              statementType: "Credit",
+                                              numberOfValidation: 2, 
+                                              dateTime: "2017-12-13");
 
   test(
     'should get credit account statement for the credit account statement type from the repository',

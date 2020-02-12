@@ -31,13 +31,13 @@ void main() {
     'should get credit account statement for the credit account statement type from the repository',
     () async {
       // arrange
-      when(mockAccountStatementRepository.getCreditAccountStatment(any))
+      when(mockAccountStatementRepository.getCreditAccountStatement(any))
           .thenAnswer((_) async => Right(tAccountStatement));
       // act
       final result = await usecase(Params(statementType: tStatementType));
       // assert
       expect(result, Right(tAccountStatement));
-      verify(mockAccountStatementRepository.getCreditAccountStatment(tStatementType));
+      verify(mockAccountStatementRepository.getCreditAccountStatement(tStatementType));
       verifyNoMoreInteractions(mockAccountStatementRepository);
     },
   );

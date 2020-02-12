@@ -13,7 +13,7 @@ class GetCreditAccountStatment implements UseCase<AccountStatement, Params> {
   GetCreditAccountStatment(this.repository);
   @override
   Future<Either<Failure, AccountStatement>> call(Params params) async {
-    return await repository.getCreditAccountStatment(params.statementType);
+    return await repository.getCreditAccountStatement(params.statementType);
   }
 }
 

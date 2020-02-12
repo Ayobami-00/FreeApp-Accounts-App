@@ -13,15 +13,15 @@ class GetVerifiableAccountStatment implements UseCase<AccountStatement, Params> 
   GetVerifiableAccountStatment(this.repository);
   @override
   Future<Either<Failure, AccountStatement>> call(Params params) async {
-    return await repository.getVerifiableAccountStatement(params.teamMemberUserId);
+    return await repository.getVerifiableAccountStatement(params.teamMemberName);
   }
 }
 
 class Params extends Equatable {
-  final String teamMemberUserId;
+  final String teamMemberName;
 
-  Params({@required this.teamMemberUserId});
+  Params({@required this.teamMemberName});
 
   @override
-  List<Object> get props => [teamMemberUserId];
+  List<Object> get props => [teamMemberName];
 }

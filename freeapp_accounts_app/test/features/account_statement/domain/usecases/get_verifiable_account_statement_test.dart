@@ -17,7 +17,7 @@ void main() {
     usecase = GetVerifiableAccountStatment(mockAccountStatementRepository);
   });
 
-  final tteamMmberUserId = 'sjhhwu38389309309337ccn';
+  final tteamMemberName = 'Tunde Adewole';
   final tAccountStatement = AccountStatement(nameOfEntry: "Web Hosting", 
                                               amount: 10000.0, 
                                               description: "Web Hosting for FreeApp Web", 
@@ -28,16 +28,16 @@ void main() {
                                               dateTime: "2017-12-13");
 
   test(
-    'should get account statement for the statement type from the repository',
+    'should get verifiable account statement for the statement type from the repository',
     () async {
       // arrange
       when(mockAccountStatementRepository.getVerifiableAccountStatement(any))
           .thenAnswer((_) async => Right(tAccountStatement));
       // act
-      final result = await usecase(Params(teamMemberUserId: tteamMmberUserId));
+      final result = await usecase(Params(teamMemberName: tteamMemberName));
       // assert
       expect(result, Right(tAccountStatement));
-      verify(mockAccountStatementRepository.getVerifiableAccountStatement(tteamMmberUserId));
+      verify(mockAccountStatementRepository.getVerifiableAccountStatement(tteamMemberName));
       verifyNoMoreInteractions(mockAccountStatementRepository);
     },
   );

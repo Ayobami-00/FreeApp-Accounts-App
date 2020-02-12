@@ -2,22 +2,25 @@ import 'package:freeapp_accounts_app/features/account_statement/domain/entities/
 import 'package:meta/meta.dart';
 
 class AccountStatementModel extends AccountStatement {
-
-  final String nameOfEntry;
+final String nameOfEntry;
   final double amount;
   final String description;
   final String timestamp;
   final List<String> teamMembersInvolved;
   final String statementType;
+  final int numberOfValidation;
+  final String dateTime;
 
   AccountStatementModel({ 
-  @required this.nameOfEntry, 
-  @required this.amount, 
-  @required this.description,
-  @required this.timestamp, 
-  @required this.teamMembersInvolved,
-  @required this.statementType,
-  }) : super(nameOfEntry:nameOfEntry, amount:amount, description: description, timestamp: timestamp, teamMembersInvolved: teamMembersInvolved, statementType: statementType);
+                  @required this.nameOfEntry, 
+                  @required this.amount, 
+                  @required this.description, 
+                  @required this.timestamp, 
+                  @required this.teamMembersInvolved, 
+                  @required this.statementType, 
+                  @required this.numberOfValidation, 
+                  @required this.dateTime
+  }) : super(nameOfEntry:nameOfEntry,amount: amount,description: description,timestamp: timestamp,teamMembersInvolved:teamMembersInvolved,statementType: statementType,numberOfValidation:numberOfValidation,dateTime:dateTime);
 
   factory AccountStatementModel.fromJson(Map<String, dynamic> json) {
     return AccountStatementModel(
@@ -25,8 +28,10 @@ class AccountStatementModel extends AccountStatement {
       amount: (json['amount'] as num).toDouble(), 
       description: json['description'], 
       timestamp: json['timestamp'], 
-      teamMembersInvolved: json['teamMembersInvolved'], 
+      teamMembersInvolved: json['teamMembersInvolved'].cast<String>(), 
       statementType: json['statementType'],
+      numberOfValidation: (json['numberOfValidation'] as num).toInt(),
+      dateTime: json['dateTime'],
 
     );
   }
@@ -39,6 +44,8 @@ class AccountStatementModel extends AccountStatement {
       'timestamp': timestamp,
       'teamMembersInvolved':teamMembersInvolved,
       'statementType': statementType,
+      'numberOfValidation': numberOfValidation,
+      'dateTime': dateTime,
     };
   }
 }

@@ -1,8 +1,10 @@
 {
   "nameOfEntry": "Web Hosting",
-  "amount": "Hosting for FreeApp Web",
-  "description": "Hosting for FreeApp Web",
-  "timestamp": "15666789999",
+  "amount": 10000.0,
+  "description": "Web Hosting for FreeApp Web",
+  "timestamp": "152345677",
   "teamMembersInvolved": ["Tunde Adewole","Philip Nnamdi"],
-  "statementType": "Credit"
+  "statementType": "Credit",
+  "numberOfValidation": 2, 
+  "dateTime": "2017-12-13"
 }

@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:freeapp_accounts_app/db/sharedPreferencedb.dart';
 
 class UsersDb{
   Firestore _firestore = Firestore();
@@ -15,13 +16,14 @@ class UsersDb{
       return false;
     }
     if (email == userDetails["email"] && password == userDetails["password"]){
+          Sharedpreference().addStringToSF('CURRENT_USER_NAME',userDetails["name"]);
           return true;
         }else{
           return false;
         }
-
      
   }
+
   }
       
 

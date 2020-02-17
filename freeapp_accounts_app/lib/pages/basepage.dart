@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:freeapp_accounts_app/widgets/credits.dart';
 import 'package:freeapp_accounts_app/widgets/debits.dart';
 import 'package:freeapp_accounts_app/widgets/homepage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class BasePage extends StatefulWidget {
   @override
@@ -10,6 +11,7 @@ class BasePage extends StatefulWidget {
 
 class _BasePageState extends State<BasePage> {
   int _currentIndex = 1;
+  String CURRENT_USER_NAME = 'Guest';
   final List<Widget> _children = [
     Credits(),
     HomePage(),
@@ -17,10 +19,19 @@ class _BasePageState extends State<BasePage> {
   ];
 
   @override
+  void initState() {
+    getStringValuesSF();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Accountz',textAlign: TextAlign.center,),
+        title: Row(children: <Widget>[
+          Expanded(child: Text('Accountz -',textAlign: TextAlign.center,)),
+          Expanded(child: Text(CURRENT_USER_NAME))
+        ],
+          ),
       ),
       body: _children[_currentIndex],
       //  _children[_currentIndex],
@@ -46,6 +57,15 @@ class _BasePageState extends State<BasePage> {
      
     );
   }
+    getStringValuesSF() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  //Return String
+  String stringValue = prefs.getString('CURRENT_USER_NAME');
+  setState(() {
+    CURRENT_USER_NAME = stringValue; 
+  });
+}
+
   void onTabTapped(int index) {
    setState(() {
      _currentIndex = index;

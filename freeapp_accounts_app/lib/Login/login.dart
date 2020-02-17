@@ -125,23 +125,25 @@ class _LoginState extends State<Login> {
                                     child: MaterialButton(
                                       onPressed: () async {
                                         if (_formKey.currentState.validate()) {
-                                          setState(() {
-                                            _isLoading = true;
-                                          });
+                                          // _formKey.currentState.dispose(); 
+                                          // setState(() {
+                                          //   _isLoading = true;
+                                                                                      
+                                          // });
                                           if (await _usersDb.validateEmail(
-                                              _email.text, _password.text)) {
+                                              _email.text, _password.text)) { 
+                                            //     setState(() {
+                                            //   _isLoading = false;
+                                            // });                                                                               
                                             Navigator.pushReplacement(
                                                 context,
                                                 MaterialPageRoute(
                                                     builder: (context) =>
-                                                        BasePage()));
-                                            setState(() {
-                                              _isLoading = false;
-                                            });
+                                                        BasePage()));        
                                           } else {
-                                            setState(() {
-                                              _isLoading = false;
-                                            });
+                                            // setState(() {
+                                            //   _isLoading = false;
+                                            // });
                                             _key.currentState.showSnackBar(SnackBar(
                                                 content: Text(
                                                     "Login falied! Wrong Input details")));

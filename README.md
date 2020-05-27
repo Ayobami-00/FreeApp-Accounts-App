@@ -3,9 +3,9 @@ This is the internal accounting system for the FreeApp team. It handles and keep
 
 
 ## App Screens
-<img src="./freeapp_accounts_app/images/IMG_20200221_225411.jpg">
-<img src="./freeapp_accounts_app/images/IMG_20200221_225433.jpg">
-<img src="./freeapp_accounts_app/images/IMG_20200221_225512.jpg">
+<img src="./freeapp_accounts_app/images/IMG_20200221_225411.jpg", width: 20%>
+<img src="./freeapp_accounts_app/images/IMG_20200221_225433.jpg", width: 20%>
+<img src="./freeapp_accounts_app/images/IMG_20200221_225512.jpg", width: 20%>
 
 
 ## Sign in screen
